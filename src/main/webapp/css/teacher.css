@@ -1,0 +1,645 @@
+/* =========================================================
+   AttendX – Teacher Mobile UI CSS
+   ========================================================= */
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #e0e7ff;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+    --dark: #1e293b;
+    --dark-2: #334155;
+    --muted: #64748b;
+    --border: #e2e8f0;
+    --bg: #f1f5f9;
+    --white: #ffffff;
+    --nav-h: 64px;
+    --header-h: 60px;
+    --radius: 14px;
+    --shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, .12);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    font-size: 14px;
+    color: var(--dark-2);
+    background: var(--bg);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ── App shell ── */
+
+.app-shell {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+/* ── Header ── */
+
+.app-header {
+    height: var(--header-h);
+    background: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.app-header .brand {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.app-header .subtitle {
+    font-size: 11px;
+    color: rgba(255, 255, 255, .7);
+}
+
+.app-header .user-chip {
+    background: rgba(255, 255, 255, .2);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ── Page content ── */
+
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 16px calc(var(--nav-h) + 16px);
+}
+
+
+/* ── Bottom nav ── */
+
+.bottom-nav {
+    height: var(--nav-h);
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 480px;
+    z-index: 50;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, .08);
+}
+
+.nav-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: color .2s;
+    position: relative;
+}
+
+.nav-tab.active {
+    color: var(--primary);
+}
+
+.nav-tab .nav-icon {
+    font-size: 20px;
+}
+
+.nav-tab .nav-label {
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.nav-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 40px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px 3px 0 0;
+}
+
+
+/* ── Cards ── */
+
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.card-body {
+    padding: 16px;
+}
+
+
+/* ── Attendance status card ── */
+
+.att-status-card {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    border-radius: var(--radius);
+    color: #fff;
+    padding: 24px 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow-lg);
+}
+
+.att-status-card .date-label {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.att-status-card .status-text {
+    font-size: 22px;
+    font-weight: 800;
+    margin: 6px 0;
+}
+
+.att-status-card .time-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 12px;
+}
+
+.att-status-card .time-item .label {
+    font-size: 11px;
+    opacity: .7;
+}
+
+.att-status-card .time-item .value {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* ── Scanner ── */
+
+.scanner-box {
+    background: var(--dark);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 16px;
+    position: relative;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scanner-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #94a3b8;
+    text-align: center;
+    padding: 32px;
+}
+
+.scanner-placeholder .icon {
+    font-size: 48px;
+}
+
+#reader {
+    width: 100%;
+}
+
+
+/* ── Buttons ── */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all .2s;
+    width: 100%;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-success {
+    background: var(--success);
+    color: #fff;
+}
+
+.btn-success:hover {
+    background: #16a34a;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #fff;
+}
+
+.btn-outline {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    color: var(--dark-2);
+}
+
+.btn-lg {
+    padding: 14px 24px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+
+/* ── Forms ── */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--dark-2);
+}
+
+.form-control {
+    padding: 11px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    font-size: 14px;
+    color: var(--dark);
+    background: var(--white);
+    outline: none;
+    width: 100%;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, .15);
+}
+
+
+/* ── Alerts ── */
+
+.alert {
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.alert-success {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.alert-danger {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.alert-info {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.alert-warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+
+/* ── Badges ── */
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.badge-present {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.badge-absent {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.badge-in {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.badge-out {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+
+/* ── Table ── */
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 400px;
+}
+
+thead th {
+    text-align: left;
+    padding: 9px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--muted);
+    background: #f8fafc;
+    border-bottom: 1px solid var(--border);
+}
+
+tbody td {
+    padding: 10px 12px;
+    font-size: 12.5px;
+    color: var(--dark-2);
+    border-bottom: 1px solid #f1f5f9;
+}
+
+
+/* ── Login / Register pages ── */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(160deg, var(--primary) 0%, #a855f7 100%);
+}
+
+.auth-header {
+    padding: 40px 24px 24px;
+    text-align: center;
+    color: #fff;
+}
+
+.auth-header .brand {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.auth-header .tagline {
+    font-size: 13px;
+    opacity: .8;
+    margin-top: 4px;
+}
+
+.auth-body {
+    flex: 1;
+    background: var(--bg);
+    border-radius: 24px 24px 0 0;
+    padding: 28px 20px;
+}
+
+.auth-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 4px;
+}
+
+.auth-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+.auth-link {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+
+/* ── Spinner ── */
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, .3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin .6s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ── History timeline ── */
+
+.history-list {
+    list-style: none;
+}
+
+.history-item {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.history-item .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.dot-present {
+    background: var(--success);
+}
+
+.dot-absent {
+    background: var(--danger);
+}
+
+.dot-half {
+    background: var(--warning);
+}
+
+.history-date {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.history-times {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 2px;
+}
+
+
+/* ── GPS status ── */
+
+.gps-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: var(--bg);
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.gps-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--muted);
+    flex-shrink: 0;
+}
+
+.gps-dot.found {
+    background: var(--success);
+    animation: pulse 1.5s infinite;
+}
+
+.gps-dot.locating {
+    background: var(--warning);
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .4;
+    }
+}
+
+
+/* ── Utility ── */
+
+.mt-2 {
+    margin-top: 8px;
+}
+
+.mt-3 {
+    margin-top: 12px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-muted {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.hidden {
+    display: none !important;
+}
