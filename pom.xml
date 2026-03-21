@@ -92,7 +92,16 @@
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
-      </plugin>
+      </plugin
+               <build>
+  <plugins>
+    <plugin>
+      <groupId>org.apache.tomcat.maven</groupId>
+      <artifactId>tomcat7-maven-plugin</artifactId>
+      <version>2.2</version>
+    </plugin>
+  </plugins>
+</build>
     </plugins>
   </build>
 </project>
