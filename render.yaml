@@ -1,6 +1,7 @@
 services:
   - type: web
     name: attendify
-    runtime: java
-    buildCommand: mvn clean package
-    startCommand: mvn tomcat7:run
+    env: docker
+    plan: free
+    buildCommand: ""
+    startCommand: ""
